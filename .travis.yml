@@ -1,0 +1,20 @@
+# vim: ft=yaml
+os:
+  - linux
+  - osx
+
+language: bash
+
+sudo: required
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./tests/integ-tests/install-linux-deps.sh; fi;
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./tests/integ-tests/install-osx-deps.sh; fi;
+
+install:
+  - curl -sL https://git.io/vV4yE | sh
+  - source ~/.bashrc
+  - echo "PEARL_PACKAGES[test]=\"${PWD}\"" >> ~/.config/pearl/pearl.conf
+
+script:
+  - ./tests/integ-tests/integ-tests.sh

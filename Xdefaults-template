@@ -1,0 +1,79 @@
+! CAREFUL! DO NOT PUT SINGLE OR DOUBLE QUOTES IN COMMENTS!
+! You can ensure that your Xdefaults file parses correctly with:
+!   xrdb -n ~/.Xdefaults >/dev/null
+! If that does not show an error, you are good.
+!
+! RELOADING CONFIGURATION:
+! Changing this file will not do anything (even with urxvt restart) without:
+!   xrdb -load ~/.Xdefaults
+! You can query the state of loaded config with:
+!   xrdb -query
+!
+! This configuration is based on the dotfile:
+! https://github.com/Valloric/dotfiles/blob/master/urxvt/Xdefaults
+
+!--[GENERAL SETTINGS]--!
+URxvt.loginShell: True
+! We use tmux and thus do not need this
+URxvt.saveLines: 0
+URxvt.geometry: 90x30
+URxvt.borderless: True
+URxvt.jumpScroll: False
+URxvt.internalBorder: 0
+URxvt.scrollBar: True
+! Scrollstyle options: plain, rxvt, next, xterm
+URxvt.scrollstyle: plain
+
+
+!--[FONTS]--!
+URxvt.font: xft:<FONTNAME>:size=<FONTSIZE>:antialias=true:hinting=true
+URxvt.alt-font-width: True
+URxvt.letterSpace: -1
+URxvt.lineSpace: 0
+URxvt.allow_bold: False
+
+
+!--[EXTENSIONS]--!
+! Selection to clipboard extension keys
+!   Meta+Mouse     To select a rectangle area
+!   Ctrl+Meta+c    To copy the selected text
+!   Ctrl+Meta+v    To paste the copied text
+! Tabbed extension keys
+!   Shift+Down     New tab
+!   Shift+Left     Go to left tab
+!   Shift+Right    Go to right tab
+!   Ctrl+Left      Move tab to the left
+!   Ctrl+Right     Move tab to the right
+!   Ctrl+d         Close tab
+! Matcher extension keys
+!   Meta+u         Select URL
+!   Ctrl+Delete    Select last URL
+!   Meta+Delete    List all URLs
+URxvt.perl-ext-common: default,matcher,tabbed,selection-to-clipboard
+URxvt.url-launcher: xdg-open
+URxvt.matcher.button: 1
+URxvt.keysym.M-u: perl:matcher:select
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+
+
+!--[BASIC THEME]--!
+URxvt.cursorBlink: True
+URxvt.cursorColor: #657b83
+URxvt.cursorUnderline: False
+URxvt.cursorColor2: #000000
+URxvt.pointerBlank: True
+URxvt.colorBD: #ffffff
+URxvt.colorIT: #bbbbbb
+URxvt.colorUL: #999999
+URxvt.underlineColor: #999999
+URxvt.tintColor: white
+URxvt.transparent: False
+URxvt.depth: 32
+URxvt.fading: 0
+
+! vim: ft=xdefaults
