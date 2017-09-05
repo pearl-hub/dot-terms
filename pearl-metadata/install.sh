@@ -9,8 +9,16 @@ post_install() {
     local fontname=$(input "Which font would you like?" "Ubuntu Mono derivative Powerline")
     local fontsize=$(input "Which font size would you like?" "18")
     sed -e "s/<FONTNAME>/$fontname/g" -e "s/<FONTSIZE>/$fontsize/g" "$PEARL_PKGDIR/Xdefaults-template" > "$PEARL_PKGVARDIR/Xdefaults"
-    local theme=$(choose "Which theme would you like?" "zenburn" "solarized" "solarized-light" "zenburn")
-    cat "$PEARL_PKGDIR/Xdefaults-color-$theme" >> "$PEARL_PKGVARDIR/Xdefaults"
+
+    local themes=()
+    local thm
+    for thm in "$PEARL_PKGDIR/"Xdefaults-theme-*
+    do
+        themes+=($(basename "${thm/Xdefaults-theme-/}"))
+    done
+
+    local theme=$(choose "Which theme would you like?" "zenburn" "${themes[@]}")
+    cat "$PEARL_PKGDIR/Xdefaults-theme-$theme" >> "$PEARL_PKGVARDIR/Xdefaults"
 
     # Check the Xdefaults file for syntax errors, like ' chars in comments
     if command -v xrdb >/dev/null

@@ -19,7 +19,7 @@ Description
 - username: fsquillace
 - OS compatibility: linux, osx
 
-Available themes are zenburn and solarized. You can choose either one or the other during installation.
+Available themes are zenburn, solarized, tango and more. You can choose your favorite theme during theme installation.
 
 Installation
 ============
