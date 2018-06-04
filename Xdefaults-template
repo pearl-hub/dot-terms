@@ -49,16 +49,16 @@ URxvt.allow_bold: False
 !   Meta+u         Select URL
 !   Ctrl+Delete    Select last URL
 !   Meta+Delete    List all URLs
-URxvt.perl-ext-common: default,matcher,tabbed,selection-to-clipboard
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 URxvt.url-launcher: xdg-open
 URxvt.matcher.button: 1
 URxvt.keysym.M-u: perl:matcher:select
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 3
-URxvt.tabbed.tab-bg: 0
+!URxvt.tabbed.tabbar-fg: 2
+!URxvt.tabbed.tabbar-bg: 0
+!URxvt.tabbed.tab-fg: 3
+!URxvt.tabbed.tab-bg: 0
 
 
 !--[BASIC THEME]--!
