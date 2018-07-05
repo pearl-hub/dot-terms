@@ -17,6 +17,7 @@ before_install:
 install:
   - curl -sL https://git.io/vV4yE | sh
   - source ~/.bashrc
+  - echo 'PEARL_PACKAGES["fonts"]="https://github.com/pearl-hub/fonts.git"' >> $HOME/.config/pearl/pearl.conf
   - echo "PEARL_PACKAGES[test]=\"${PWD}\"" >> ~/.config/pearl/pearl.conf
 
 script:
