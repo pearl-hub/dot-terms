@@ -4,14 +4,14 @@ set -e
 
 source $HOME/.bashrc
 
-echo -e "\n\n\n" | pearl install test
+echo -e "0\n\n\n\n" | pearl install test
 
 [ -d $PEARL_HOME/packages/default/test ] || { echo "Error: The package test does not exist after installing it."; exit 1; }
 
 cat $HOME/.Xdefaults
 cat $HOME/.Xresources
 
-echo -e "\n\n\n" | pearl update test
+echo -e "0\n\n\n\n" | pearl update test
 
 pearl remove test
 
