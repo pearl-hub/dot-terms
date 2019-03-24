@@ -1,7 +1,8 @@
 # vim: ft=yaml
 os:
   - linux
-  - osx
+  # OSX is not supported yet
+  #- osx
 
 language: bash
 
@@ -12,7 +13,7 @@ env:
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./tests/test-utils/installs/install-linux-deps.sh; fi;
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./tests/test-utils/installs/install-osx-deps.sh; fi;
+  #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./tests/test-utils/installs/install-osx-deps.sh; fi;
 
 install:
   - curl -sL https://git.io/vV4yE | sh
