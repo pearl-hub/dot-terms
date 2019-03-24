@@ -17,7 +17,7 @@ Description
 - description: Awesome terms dotfiles (i.e. urxvt)
 - author: Filippo Squillace
 - username: fsquillace
-- OS compatibility: linux, osx
+- OS compatibility: linux, osx (not tested for osx but should work)
 
 Available themes are zenburn, solarized, tango and more. You can choose your favorite theme during theme installation.
 
