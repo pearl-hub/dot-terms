@@ -16,11 +16,19 @@ pre_remove() {
 _new_xdefaults() {
     warn "The following procedure will overwrite the files $HOME/.Xdefaults and $HOME/.Xresources"
 
+    if osx_detect
+    then
+        if command -v fc-list &> /dev/null
+        then
+            warn "You need to have fontconfig installed. Run: brew install fontconfig"
+        fi
+    fi
+
     local fontlist=()
     IFS=$'\n'
     # Disable pipefail as this may fail if list of fonts is empty
     set +o pipefail
-    for font in $(fc-list | grep ^/home | grep -i mono | cut -d: -f2 | sort -u)
+    for font in $(fc-list | grep -E "^/(home|Users)" | grep -i mono | cut -d: -f2 | sort -u)
     do
         fontlist+=("$font")
     done
