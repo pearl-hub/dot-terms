@@ -1,6 +1,6 @@
-post_install() {
-    pearl emerge ${PEARL_PKGREPONAME}/fonts
+DEPENDS=("${PEARL_PKGREPONAME}/fonts")
 
+post_install() {
     setup_configuration "${PEARL_PKGVARDIR}/Xdefaults" \
         _new_xdefaults _apply_xdefaults _unapply_xdefaults
 }
