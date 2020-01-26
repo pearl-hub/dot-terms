@@ -1,6 +1,4 @@
 post_install() {
-    pearl emerge ${PEARL_PKGREPONAME}/fonts
-
     setup_configuration "${PEARL_PKGVARDIR}/Xdefaults" \
         _new_xdefaults _apply_xdefaults _unapply_xdefaults
 }
