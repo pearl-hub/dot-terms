@@ -16,10 +16,11 @@ before_install:
   #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./tests/test-utils/installs/install-osx-deps.sh; fi;
 
 install:
-  - curl -sL https://git.io/vV4yE | sh
-  - source ~/.bashrc
-  - echo 'PEARL_PACKAGES["fonts"]="https://github.com/pearl-hub/fonts.git"' >> $HOME/.config/pearl/pearl.conf
-  - echo "PEARL_PACKAGES[test]=\"${PWD}\"" >> ~/.config/pearl/pearl.conf
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./tests/test-utils/installs/install-linux-pearl.sh; fi;
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./tests/test-utils/installs/install-osx-pearl.sh; fi;
+  - export PATH="~/.local/bin:/usr/local/bin:$PATH"
+
+  - ./tests/integ-tests/init-pearl-conf.sh
 
 script:
   - ./tests/integ-tests/integ-tests.sh
