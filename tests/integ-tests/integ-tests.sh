@@ -4,16 +4,16 @@ set -e
 
 source $HOME/.bashrc
 
-echo -e "y\n2.0.0\nUbuntuMono\n\n0\n\n\n\n" | pearl install test
+echo -e "y\n2.0.0\nUbuntuMono\nN\nN\n0\n0\n\n\n" | pearl --verbose install test
 
-[ -d $PEARL_HOME/packages/default/test ] || { echo "Error: The package test does not exist after installing it."; exit 1; }
+[ -d $PEARL_HOME/packages/local/test ] || { echo "Error: The package test does not exist after installing it."; exit 1; }
 
 cat $HOME/.Xdefaults
 cat $HOME/.Xresources
 
-echo -e "y\n2.0.0\nUbuntuMono\n\n0\n\n\n\n" | pearl update test
+echo -e "y\n2.0.0\nUbuntuMono\nN\nN\n0\n0\n\n\n" | pearl --verbose update test
 
-pearl remove test
+pearl --no-confirm --verbose remove test
 
 if [[ -f $HOME/.Xdefaults ]]
 then
